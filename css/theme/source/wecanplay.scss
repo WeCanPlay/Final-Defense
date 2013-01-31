@@ -44,10 +44,11 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 	h1, h2 {
 		font-weight: bold;
 		text-shadow: none;
+		word-break: normal;
 	}
 
 	h2 {
-		font-size: 3.8em;
+		font-size: 3.2em;
 	}
 
 	h3 {
@@ -57,5 +58,29 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 	img {
 		border: none;
 		box-shadow: none;
+	}
+
+	#team {
+		img {
+			display: block;
+			padding: 2px;
+			line-height: 1;
+			border: 1px solid #ddd;
+			@include border-radius(4px);
+
+			-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+			-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+		}
+
+		p {
+			line-height: 27px;
+			font-size: 18px;
+
+			&.name {
+				font-size: 30px;
+				font-weight: bold;
+			}
+		}
 	}
 }

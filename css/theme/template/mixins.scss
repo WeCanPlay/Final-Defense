@@ -27,3 +27,9 @@
 	background: -ms-radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
 	background: radial-gradient( center, $type cover,  $inner 0%, $outer 100% );
 }
+
+@mixin border-radius( $value ) {
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	border-radius: $value;
+}
