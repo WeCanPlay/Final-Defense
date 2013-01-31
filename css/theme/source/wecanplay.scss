@@ -83,4 +83,56 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 			}
 		}
 	}
+
+	#features {
+		p {
+			font-size: 0.5em;
+			&.title {
+				font-size: 0.7em;
+				font-weight: bold;
+			}
+		}
+	
+		.featicon {
+			display: block;
+			float: left;
+			width: 27px;
+			height: 27px;
+			margin: 5px 5px 0 0;
+			background-image: url('/imgs/spritefeatures.png');
+			background-position: 14px 14px;
+			background-repeat: no-repeat;
+		}
+
+		.featicon.asset {
+			background-position: 0px 0px;
+		}
+		.featicon.sprite {
+			background-position: -27px 0px;
+		}
+		.featicon.scene {
+			background-position: -54px 0px;
+		}
+		.featicon.draw {
+			background-position: -81px 0px;
+		}
+		.featicon.animation {
+			background-position: 0px -27px;
+		}
+		.featicon.sound {
+			background-position: -27px -27px;
+		}
+		.featicon.event {
+			background-position: -54px -27px;
+		}
+		.featicon.text {
+			background-position: -81px -27px;
+		}
+		.featicon.filter {
+			background-position: 0px -54px;
+		}
+		.featicon.helpeurs {
+			background-position: -27px -54px;
+		}
+	}
 }

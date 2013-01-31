@@ -150,3 +150,37 @@ body {
   .reveal section #team p.name {
     font-size: 30px;
     font-weight: bold; }
+.reveal section #features p {
+  font-size: 0.5em; }
+  .reveal section #features p.title {
+    font-size: 0.7em;
+    font-weight: bold; }
+.reveal section #features .featicon {
+  display: block;
+  float: left;
+  width: 27px;
+  height: 27px;
+  margin: 5px 5px 0 0;
+  background-image: url('/imgs/spritefeatures.png');
+  background-position: 14px 14px;
+  background-repeat: no-repeat; }
+.reveal section #features .featicon.asset {
+  background-position: 0px 0px; }
+.reveal section #features .featicon.sprite {
+  background-position: -27px 0px; }
+.reveal section #features .featicon.scene {
+  background-position: -54px 0px; }
+.reveal section #features .featicon.draw {
+  background-position: -81px 0px; }
+.reveal section #features .featicon.animation {
+  background-position: 0px -27px; }
+.reveal section #features .featicon.sound {
+  background-position: -27px -27px; }
+.reveal section #features .featicon.event {
+  background-position: -54px -27px; }
+.reveal section #features .featicon.text {
+  background-position: -81px -27px; }
+.reveal section #features .featicon.filter {
+  background-position: 0px -54px; }
+.reveal section #features .featicon.helpeurs {
+  background-position: -27px -54px; }
