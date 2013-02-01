@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebCanPlay - Bouncing Ball</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Wecanplay">
+    
+    <link href="ressources/style/bootstrap.min.css" rel="stylesheet">
+    <link href="ressources/style/wecanplay.css" rel="stylesheet">
+
+    <script src="build-WCP.js"></script>
+<style>
+.code pre, .code code {
+    font-family: monospace;
+    font-size: 11px;
+}
+</style>
+</head>
+<body style="padding-top: 0;background: none;">
+        <div class="" style="padding-top: 0;">
+            <div>
+                <button class="btn" id="btn-native">Code Natif</button>
+                <button class="btn" id="btn-wecanplay">WeCanPlay</button>
+
+                <span>
+                    API actuelle : <strong id="api-name" class="label label-info">~</strong>
+                </span>
+            </div>
+
+            <canvas id="canvas" width="400" height="400"></canvas>
+
+            <div class="row-fluid">
+                <div class="span6">
+
+<div id="code-wecanplay" class="code">
+  <p>Code WeCanPlay</p>
+  <pre><div class="javascript" style="font-family:monospace;color: #006;">WCP.<span style="color: #660066;">setCanvas</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'canvas'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+
+<span style="color: #003366; font-weight: bold;">var</span> mainView <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> WCP.<span style="color: #660066;">View</span><span style="color: #009900;">(</span><span style="color: #009900;">{</span>
+  init<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>
+    <span style="color: #003366; font-weight: bold;">var</span> image <span style="color: #339933;">=</span> WCP.<span style="color: #660066;">Filter</span>.<span style="color: #660066;">colorAdjust</span><span style="color: #009900;">(</span>WCP.<span style="color: #660066;">Assets</span>.<span style="color: #660066;">get</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'ball'</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <span style="color: #009900;">[</span><span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> 0x55<span style="color: #339933;">,</span> <span style="color: #CC0000;">0</span><span style="color: #009900;">]</span><span style="color: #009900;">)</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">200</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">200</span><span style="color: #339933;">;</span>  
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">ball</span> <span style="color: #339933;">=</span> <span style="color: #003366; font-weight: bold;">new</span> WCP.<span style="color: #660066;">Sprite</span><span style="color: #009900;">(</span>image<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">ball</span>.<span style="color: #660066;">setOrigin</span><span style="color: #009900;">(</span>WCP.<span style="color: #660066;">Sprite</span>.<span style="color: #660066;">ORIGIN_CENTER</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">add</span><span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">ball</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  <span style="color: #009900;">}</span><span style="color: #339933;">,</span>  
+  loop<span style="color: #339933;">:</span> <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+    <span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">ball</span>.<span style="color: #660066;">rotation</span> <span style="color: #339933;">+=</span> IMG_ROTATION_SPEED <span style="color: #339933;">*</span> <span style="color: #009900;">(</span><span style="color: #000066; font-weight: bold;">this</span>.<span style="color: #660066;">elapsed</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">1000</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  <span style="color: #009900;">}</span>  
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  
+WCP.<span style="color: #660066;">Assets</span>.<span style="color: #660066;">add</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'ball'</span><span style="color: #339933;">,</span> IMG_SRC<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+WCP.<span style="color: #660066;">Assets</span>.<span style="color: #660066;">load</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'*'</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">null</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #009900;">{</span>  
+  mainView.<span style="color: #660066;">start</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></div>
+</pre>
+</div>
+</div>
+
+<dibv class="span6">
+<div id="code-native" class="code">
+    <p>Code Natif</p>
+    <pre><div class="javascript" style="font-family:monospace;color: #006;">window.<span style="color: #660066;">requestAnimFrame</span> <span style="color: #339933;">=</span> <span style="color: #009900;">(</span><span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+  <span style="color: #000066; font-weight: bold;">return</span>  window.<span style="color: #660066;">requestAnimationFrame</span> <span style="color: #339933;">||</span>  
+      window.<span style="color: #660066;">webkitRequestAnimationFrame</span> <span style="color: #339933;">||</span>  
+      window.<span style="color: #660066;">mozRequestAnimationFrame</span> <span style="color: #339933;">||</span>  
+      window.<span style="color: #660066;">oRequestAnimationFrame</span> <span style="color: #339933;">||</span>  
+      window.<span style="color: #660066;">msRequestAnimationFrame</span> <span style="color: #339933;">||</span>  
+      <span style="color: #003366; font-weight: bold;">function</span> <span style="color: #009900;">(</span>callback<span style="color: #339933;">,</span> element<span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+        window.<span style="color: #660066;">setTimeout</span><span style="color: #009900;">(</span>callback<span style="color: #339933;">,</span> <span style="color: #CC0000;">1000</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">60</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+      <span style="color: #009900;">}</span><span style="color: #339933;">;</span>  
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  
+<span style="color: #003366; font-weight: bold;">var</span> canvas <span style="color: #339933;">=</span> document.<span style="color: #660066;">getElementById</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'canvas'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #003366; font-weight: bold;">var</span> ctx <span style="color: #339933;">=</span> canvas.<span style="color: #660066;">getContext</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'2d'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #003366; font-weight: bold;">var</span> image <span style="color: #339933;">=</span> document.<span style="color: #660066;">createElement</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'img'</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  
+<span style="color: #003366; font-weight: bold;">var</span> imgx <span style="color: #339933;">=</span> <span style="color: #CC0000;">100</span><span style="color: #339933;">;</span>  
+<span style="color: #003366; font-weight: bold;">var</span> imgy <span style="color: #339933;">=</span> <span style="color: #CC0000;">100</span><span style="color: #339933;">;</span>  
+<span style="color: #003366; font-weight: bold;">var</span> rotation <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span>  
+<span style="color: #003366; font-weight: bold;">var</span> oldtime <span style="color: #339933;">=</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">;</span>  
+  
+<span style="color: #003366; font-weight: bold;">function</span> draw_game<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+  <span style="color: #003366; font-weight: bold;">var</span> delta <span style="color: #339933;">=</span> Date.<span style="color: #660066;">now</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">1000</span> <span style="color: #339933;">-</span> oldtime<span style="color: #339933;">;</span>  
+  
+  ctx.<span style="color: #660066;">clearRect</span><span style="color: #009900;">(</span><span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> <span style="color: #CC0000;">0</span><span style="color: #339933;">,</span> canvas.<span style="color: #660066;">width</span><span style="color: #339933;">,</span> canvas.<span style="color: #660066;">height</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  
+  <span style="color: #003366; font-weight: bold;">var</span> tmpx <span style="color: #339933;">=</span> imgx <span style="color: #339933;">+</span> image.<span style="color: #660066;">width</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>  
+  <span style="color: #003366; font-weight: bold;">var</span> tmpy <span style="color: #339933;">=</span> imgy <span style="color: #339933;">+</span> image.<span style="color: #660066;">height</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">2</span><span style="color: #339933;">;</span>  
+  
+  ctx.<span style="color: #660066;">save</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  ctx.<span style="color: #660066;">translate</span><span style="color: #009900;">(</span>tmpx<span style="color: #339933;">,</span> tmpy<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  ctx.<span style="color: #660066;">rotate</span><span style="color: #009900;">(</span>rotation<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  ctx.<span style="color: #660066;">drawImage</span><span style="color: #009900;">(</span>image<span style="color: #339933;">,</span> <span style="color: #339933;">-</span> image.<span style="color: #660066;">width</span> <span style="color: #009966; font-style: italic;">/ 2, - image.height /</span> <span style="color: #CC0000;">2</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  ctx.<span style="color: #660066;">restore</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+  
+  rotation <span style="color: #339933;">+=</span> IMG_ROTATION_SPEED <span style="color: #339933;">*</span> delta<span style="color: #339933;">;</span>  
+  
+  oldtime <span style="color: #339933;">=</span> Date.<span style="color: #660066;">now</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">1000</span><span style="color: #339933;">;</span>  
+  window.<span style="color: #660066;">requestAnimFrame</span><span style="color: #009900;">(</span>draw_game<span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #009900;">}</span>  
+  
+<span style="color: #003366; font-weight: bold;">function</span> launch_game<span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+  oldtime <span style="color: #339933;">=</span> Date.<span style="color: #660066;">now</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #339933;">/</span> <span style="color: #CC0000;">1000</span><span style="color: #339933;">;</span>  
+  draw_game<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #009900;">}</span>  
+  
+image.<span style="color: #660066;">src</span> <span style="color: #339933;">=</span> IMG_SRC<span style="color: #339933;">;</span>  
+image.<span style="color: #660066;">addEventListener</span><span style="color: #009900;">(</span><span style="color: #3366CC;">'load'</span><span style="color: #339933;">,</span> <span style="color: #003366; font-weight: bold;">function</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span> <span style="color: #009900;">{</span>  
+  launch_game<span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span>  
+<span style="color: #009900;">}</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></div>
+</pre>
+</div>
+                </div>
+            </div>
+       </div>
+
+<script>
+
+var IMG_SRC = 'ressources/soccer-ball.png';
+var IMG_ROTATION_SPEED = Math.PI * 2; // half a turn per second
+var STOP = null;
+
+function use_wecanplay() {
+    WCP.setCanvas('canvas');
+
+    var mainView = new WCP.View({
+        init: function () {
+            var image = WCP.Filter.colorAdjust(WCP.Assets.get('ball'), [0, 0x55, 0]);
+            this.ball = new WCP.Sprite(image, 200, 200);
+            this.ball.setOrigin(WCP.Sprite.ORIGIN_CENTER);
+            this.add(this.ball);
+        },
+        loop: function () {
+            this.ball.rotation += IMG_ROTATION_SPEED * (this.elapsed() / 1000);
+        }
+    });
+
+    WCP.Assets.add('ball', IMG_SRC);
+    WCP.Assets.load('*', null, function(){
+        mainView.start();
+    });
+
+    STOP = function () {
+        mainView.stop();
+    }
+}
+
+function use_native() {
+    window.requestAnimFrame = (function () {
+        return  window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback, element) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+    })();
+
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var image = document.createElement('img');
+
+    var imgx = 200;
+    var imgy = 200;
+    var rotation = 0;
+    var oldtime = 0;
+    var stop = false;
+
+    function draw_game() {
+        var delta = Date.now() / 1000 - oldtime;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        var tmpx = imgx + image.width / 2;
+        var tmpy = imgy + image.height / 2;
+
+        ctx.save();
+        ctx.translate(imgx, imgy);
+        ctx.rotate(rotation);
+        ctx.drawImage(image, - image.width / 2, - image.height / 2);
+        ctx.restore();
+
+        rotation += IMG_ROTATION_SPEED * delta;
+
+        oldtime = Date.now() / 1000;
+
+        if (!stop)
+            window.requestAnimFrame(draw_game);
+    }
+
+    function launch_game() {
+        oldtime = Date.now() / 1000;
+        draw_game();
+    }
+
+    image.src = IMG_SRC;
+    image.addEventListener('load', function() {
+        launch_game();
+    });
+
+    STOP = function () {
+        stop = true;
+    }
+}
+
+function use(type) {
+    if (STOP) STOP();
+
+    if (type == 'native') {
+        document.getElementById('api-name').innerHTML = 'code Natif';
+        use_native();
+    } else {
+        document.getElementById('api-name').innerHTML = 'librairie WeCanPlay';
+        use_wecanplay();
+    }
+}
+
+document.getElementById('btn-native').addEventListener('click', function() {
+    use('native');
+}, false);
+
+document.getElementById('btn-wecanplay').addEventListener('click', function() {
+    use('wecanplay');
+}, false);
+
+</script>
+</body>
+</html>
